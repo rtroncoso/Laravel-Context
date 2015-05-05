@@ -1,5 +1,5 @@
 [![Total Downloads](https://poser.pugx.org/rtroncoso/context/d/total.svg)](https://packagist.org/packages/rtroncoso/context)
-[![Build Status](https://travis-ci.org/rtroncoso/Context.svg?branch=master)](https://travis-ci.org/rtroncoso/Context)
+[![Build Status](https://travis-ci.org/rtroncoso/Laravel-Context.svg?branch=master)](https://travis-ci.org/rtroncoso/Context)
 [![Latest Stable Version](https://poser.pugx.org/rtroncoso/context/v/stable.svg)](https://packagist.org/packages/rtroncoso/context)
 [![Latest Unstable Version](https://poser.pugx.org/rtroncoso/context/v/unstable.svg)](https://packagist.org/packages/rtroncoso/context)
 [![License](https://poser.pugx.org/rtroncoso/context/license.svg)](https://packagist.org/packages/rtroncoso/context)
