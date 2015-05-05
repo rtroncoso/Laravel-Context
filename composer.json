@@ -12,6 +12,9 @@
         "illuminate/support": "5.0.*"
     },
     "autoload": {
+        "classmap" : [
+            "src/"
+        ],
         "psr-0": {
             "Cupona\\": "src/"
         }
