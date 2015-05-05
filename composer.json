@@ -16,5 +16,9 @@
             "Cupona\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "^4.6",
+        "phpspec/phpspec": "^2.2"
+    }
 }

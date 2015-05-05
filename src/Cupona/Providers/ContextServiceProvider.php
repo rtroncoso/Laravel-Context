@@ -2,6 +2,10 @@
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ContextServiceProvider
+ * @package Cupona\Providers
+ */
 class ContextServiceProvider extends ServiceProvider {
 
 	/**
@@ -18,7 +22,9 @@ class ContextServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		dd(__DIR__);
+        $this->publishes([
+            __DIR__.'../../config/cupona.context.php' => config_path('cupona.context.php'),
+        ]);
 	}
 
 	/**

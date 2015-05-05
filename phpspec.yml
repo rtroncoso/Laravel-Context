@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: Cupona
+        psr4_prefix: Cupona
+        src_path: src
