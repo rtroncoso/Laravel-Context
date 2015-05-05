@@ -3,3 +3,9 @@ suites:
         namespace: Cupona
         psr4_prefix: Cupona
         src_path: src
+
+extensions:
+    - PhpSpec\Laravel\Extension\LaravelExtension
+
+laravel_extension:
+    testing_environment: 'testing'
