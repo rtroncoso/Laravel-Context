@@ -1,4 +1,4 @@
-<?php namespace Cupona\Context;
+<?php namespace Cupona\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -18,7 +18,7 @@ class ContextServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
-		//
+		dd(__DIR__);
 	}
 
 	/**
