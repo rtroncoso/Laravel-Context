@@ -1,3 +1,6 @@
+# Ignore Idea
+.idea
+
 /bootstrap/compiled.php
 .env.*.php
 .env.php
