@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rtroncoso/Context.svg?branch=master)](https://travis-ci.org/rtroncoso/Context)
+
 # Contextual Service Providers
 This simple yet powerful package will help you load different Service Providers depending in which context you are.
 
