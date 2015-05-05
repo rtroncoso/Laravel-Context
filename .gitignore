@@ -2,3 +2,8 @@
 .env.*.php
 .env.php
 .env
+
+/vendor
+composer.phar
+composer.lock
+.DS_Store
