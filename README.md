@@ -1,8 +1,8 @@
-[![Total Downloads](https://poser.pugx.org/rtroncoso/context/d/total.svg)](https://packagist.org/packages/rtroncoso/context)
-[![Build Status](https://travis-ci.org/rtroncoso/Laravel-Context.svg?branch=master)](https://travis-ci.org/rtroncoso/Context)
-[![Latest Stable Version](https://poser.pugx.org/rtroncoso/context/v/stable.svg)](https://packagist.org/packages/rtroncoso/context)
-[![Latest Unstable Version](https://poser.pugx.org/rtroncoso/context/v/unstable.svg)](https://packagist.org/packages/rtroncoso/context)
-[![License](https://poser.pugx.org/rtroncoso/context/license.svg)](https://packagist.org/packages/rtroncoso/context)
+[![Total Downloads](https://poser.pugx.org/rtroncoso/laravel-context/d/total.svg)](https://packagist.org/packages/rtroncoso/laravel-context)
+[![Build Status](https://travis-ci.org/rtroncoso/Laravel-Context.svg?branch=master)](https://travis-ci.org/rtroncoso/Laravel-Context)
+[![Latest Stable Version](https://poser.pugx.org/rtroncoso/laravel-context/v/stable.svg)](https://packagist.org/packages/rtroncoso/laravel-context)
+[![Latest Unstable Version](https://poser.pugx.org/rtroncoso/laravel-context/v/unstable.svg)](https://packagist.org/packages/rtroncoso/laravel-context)
+[![License](https://poser.pugx.org/rtroncoso/laravel-context/license.svg)](https://packagist.org/packages/rtroncoso/laravel-context)
 
 # Contextual Service Providers
 This simple yet powerful package will help you load different Service Providers depending in which context you are.
