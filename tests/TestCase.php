@@ -7,9 +7,10 @@ abstract class TestCase extends Orchestra\Testbench\TestCase {
         parent::setUp();
     }
 
-    protected function getPackageProviders()
+    protected function getPackageProviders($app)
     {
         return ['Cupona\Providers\ContextServiceProvider'];
     }
+
 
 }
