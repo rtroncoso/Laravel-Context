@@ -1,5 +1,7 @@
 <?php
 
+use Cupona\Libraries\Context;
+
 class ContextTest extends TestCase {
 
     /**
@@ -7,9 +9,9 @@ class ContextTest extends TestCase {
      */
     public function it_should_instantiate_a_new_context()
     {
-        $context = $this->app->make('Cupona\Libraries\Context');
+        $context = $this->app->make(Context::class);
 
-        $this->assertInstanceOf('Cupona\Libraries\Context', $context);
+        $this->assertInstanceOf(Context::class, $context);
     }
 
 }
