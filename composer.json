@@ -1,5 +1,5 @@
 {
-    "name": "rtroncoso/context",
+    "name": "rtroncoso/laravel-context",
     "description": "Provides Service Provider binding depending on a context",
     "authors": [
         {
