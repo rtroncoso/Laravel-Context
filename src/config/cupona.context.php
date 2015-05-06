@@ -19,8 +19,8 @@ return [
     | Default Namespace
     |--------------------------------------------------------------------------
     |
-    | Sets the default namespace in which the library will search for
-    | your service providers
+    | Sets the default namespace in which the library
+    | will search for your service providers
     |
     */
     'namespace' => 'Contextual\\Providers',
@@ -42,8 +42,9 @@ return [
     | Custom Service Providers
     |--------------------------------------------------------------------------
     |
-    | Here you can preload all your custom service providers, given
-    | a key-value pair for each one of them (context => concrete)
+    | Here you can preload all your custom service
+    | providers, given a key-value pair for each
+    | one of them (context => concrete)
     |
     */
     'custom' => [
