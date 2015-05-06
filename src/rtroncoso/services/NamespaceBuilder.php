@@ -24,8 +24,9 @@ class NamespaceBuilder {
      * @param $className
      * @param $namespace
      * @param $matcher
+     * @return string
      */
-    public function build($className, $namespace, $matcher = null)
+    public function build($className, $namespace = null, $matcher = null)
     {
         $className = $this->applyMatcher($className, $matcher);
 
@@ -56,8 +57,9 @@ class NamespaceBuilder {
      * @param $className
      * @return string
      */
-    public function applyNamespace($namespace, $className)
+    private function applyNamespace($namespace, $className)
     {
+        // Remove trailing or leading backslashes
         $namespace = preg_replace(['/(\\\+)$/', '/^(\\\+)/'], '', $namespace);
 
         return $namespace . '\\' . $className;

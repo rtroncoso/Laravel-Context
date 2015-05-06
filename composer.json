@@ -2,6 +2,14 @@
     "name": "rtroncoso/laravel-context",
     "description": "Provides Service Provider binding depending on a context",
     "homepage": "https://github.com/chirsbjr/api-guard",
+    "license": "WTFPL",
+    "keywords": [
+        "laravel",
+        "contextual",
+        "service",
+        "providers",
+        "binding"
+    ],
     "authors": [
         {
             "name": "Rodrigo Troncoso",
