@@ -31,25 +31,25 @@ To install this package you'll simply need to add this line to your composer.jso
 }
 ```
 
-First you should add some stuff to `config/app.php`:
+After the installation is done, you need to add some stuff to `config/app.php`:
 
- - At the end of your `'providers'` array add the following:
+At the end of your `providers` array add the following:
    
-  ```php
-  'providers' => [
-      ...
-      'Cupona\Providers\ContextServiceProvider',
-  ]
-  ```
+```php
+'providers' => [
+  ...
+  'Cupona\Providers\ContextServiceProvider',
+]
+```
+
+At the end of your `aliases` array add the following:
   
-  - At the end of your `aliases` array add the following:
-  
-  ```php
-  'aliases' => [
-      ...
-      'Cupona\Facades\Context',
-  ]
-  ```
+```php
+'aliases' => [
+  ...
+  'Cupona\Facades\Context',
+]
+```
 
 Then you need to add the context middleware the `$routeMiddleware` array in your `App/Http/Kernel.php` file:
  
