@@ -22,9 +22,7 @@ class ContextServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->mergeConfigFrom([
-			__DIR__.'/../../config/cupona.context.php' => config_path('cupona.context.php'),
-		], 'cupona.context');
+		$this->mergeConfigFrom(__DIR__.'/../../config/cupona.context.php', 'cupona.context');
 
 		$this->app->bind('context', 'Cupona\\Libraries\\Context');
 	}
