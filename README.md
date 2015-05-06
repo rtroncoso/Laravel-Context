@@ -7,7 +7,7 @@ Laravel Context
 
 This simple yet powerful package will help you load different Service Providers depending in which context you are. Contexts can be setup using `context` middleware in your route groups or the `Context` facade.
 
-It supports both **Laravel 5.1.x** *(release: dev-master)* and **Laravel 5.0.x** *(release: ~1.0)*
+It supports both ~~**Laravel 5.1.x** *(release: 2.0.*)*~~ *(NOT SUPPORTED UNTIL RELEASE)*  and **Laravel 5.0.x** _(release: ~1.0.*)_
 
 ## What's it for?
 Let's say you have 2 contexts in your application: an **Administration Panel** and a **RESTful WebService**. This are certainly two completely different contexts as in one context you'll maybe want to get all resources (i.e. including trashed) and in the other one you want only the active ones.
@@ -27,7 +27,7 @@ To install this package you'll simply need to add this line to your composer.jso
 ### Laravel 5.1.x
 ```
 "require": {
-    "rtroncoso/laravel-context": "dev-master"
+    "rtroncoso/laravel-context": "~2.0"
 }
 ```
 
@@ -90,7 +90,33 @@ Route::group('prefix' => 'admin', 'middleware' => 'context', 'context' => 'backe
 }); 
 ```
 
-Note: By default the backend context Service Provider will be loaded in the namespace `Contextual\Providers\BackendServiceProvider`, you can edit this in the configuration file provided by this package (`config/context.php`)
+And your `BackendServiceProvider` should look something like this:
+
+```php
+<?php namespace Contextual\Providers;
+
+use Illuminate\Support\ServiceProvider;
+
+class BackendServiceProvider extends ServiceProvider {
+
+    /**
+     * Register the service provider.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->app->bind('Your\\Interfaces\\UserRepositoryInterface', 'Your\\Repositories\\Backend\\UserRepository');
+        
+        // Make more awesome bindings here!
+    }
+    
+}
+```
+
+By doing this you've defined your very own contexts in your application, this can be very helpful as you can make sure that when you are in an end user context **they will never** see your resources as in an administration context.
+
+>Note: By default the backend context Service Provider will be loaded in the namespace `Contextual\Providers`, you can edit this in the configuration file provided by this package (`config/context.php`)
 
 ### Context Facade
 If you want you can use this package's `Context` facade and dinamycally load and check which context you are in.
