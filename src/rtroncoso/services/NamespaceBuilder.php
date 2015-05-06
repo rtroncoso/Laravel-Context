@@ -18,15 +18,14 @@ class NamespaceBuilder {
      * and a matcher
      *
      * @param $className
-     * @param $namespace
      * @param $matcher
      * @return string
      */
-    public function build($className, $namespace = null, $matcher = null)
+    public function build($className, $matcher = null)
     {
-        $className = $this->applyMatcher($className, $matcher);
+        $classPath = $this->applyMatcher($className, $matcher);
 
-        return $this->applyNamespace($namespace, $className);
+        return $this->stripBackslashes($classPath);
     }
 
     /**
@@ -46,19 +45,15 @@ class NamespaceBuilder {
     }
 
     /**
-     * Applies and escapes any trailing backslash to a
-     * given namespace and classname
+     * Removes trailing or leading backslashes to the given
+     * Class Path
      *
-     * @param $namespace
-     * @param $className
+     * @param $classPath
      * @return string
      */
-    private function applyNamespace($namespace, $className)
+    private function stripBackslashes($classPath)
     {
-        // Remove trailing or leading backslashes
-        $namespace = preg_replace(['/(\\\+)$/', '/^(\\\+)/'], '', $namespace);
-
-        return $namespace . '\\' . $className;
+        return preg_replace(['/(\\\+)$/', '/^(\\\+)/'], '', $classPath);
     }
 
 }

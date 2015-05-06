@@ -44,42 +44,36 @@ class Context
      * to this method
      *
      * @param mixed $context
-     * @param mixed $namespace
-     * @param null $matcher
+     * @param $matcher
      * @return \Illuminate\Support\ServiceProvider
      */
-    public function load($context = null, $namespace = null, $matcher = null)
+    public function load($context = null, $matcher = null)
     {
         if(is_null($context)) {
             $context = $this->app['config']['context.default'];
-        }
-
-        if(is_null($namespace)) {
-            $namespace = $this->app['config']['context.namespace'];
         }
 
         if(is_null($matcher)) {
             $matcher = $this->app['config']['context.matcher'];
         }
 
-        return $this->build($context, $namespace, $matcher);
+        return $this->build($context, $matcher);
     }
 
     /**
      * Builds a provider string and loads it into our application
      *
      * @param $context
-     * @param $namespace
      * @param $matcher
      * @return \Illuminate\Support\ServiceProvider|null
      */
-    private function build($context, $namespace, $matcher)
+    private function build($context, $matcher)
     {
         // Save our current context
         $this->current = $context;
 
         $provider = $this->getPreloadedProvider($context) ?:
-            $this->builder->build($this->current, $namespace, $matcher);
+            $this->builder->build($this->current, $matcher);
 
         return $this->validProvider($provider) ?
             $this->app->register($provider) : null;

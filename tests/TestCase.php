@@ -18,8 +18,7 @@ abstract class TestCase extends Orchestra\Testbench\TestCase {
     {
         $app['config']->set('context', [
             'default'   => 'default',
-            'namespace' => '\\Contextual\\Providers\\',
-            'matcher'   => '{ClassName}ServiceProvider',
+            'matcher'   => 'Contextual\\Providers\\{ClassName}ServiceProvider',
             'custom' => [
                 'test' => 'Contextual\\Providers\\DummyServiceProvider'
             ]

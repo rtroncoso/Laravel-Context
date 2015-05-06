@@ -16,17 +16,6 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Namespace
-    |--------------------------------------------------------------------------
-    |
-    | Sets the default namespace in which the library
-    | will search for your service providers
-    |
-    */
-    'namespace' => 'Contextual\\Providers',
-
-    /*
-    |--------------------------------------------------------------------------
     | Matcher
     |--------------------------------------------------------------------------
     |
@@ -35,7 +24,7 @@ return [
     | passed context (converting your context into PSR-1 StudlyCaps)
     |
     */
-    'matcher' => '{ClassName}ServiceProvider',
+    'matcher' => 'Contextual\\Providers\\{ClassName}ServiceProvider',
 
     /*
     |--------------------------------------------------------------------------
