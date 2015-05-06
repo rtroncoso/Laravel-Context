@@ -12,7 +12,9 @@ It supports both ~~**Laravel 5.1.x** _(release: ~2.0)_~~ *(NOT SUPPORTED UNTIL R
 ## What's it for?
 Let's say you have 2 contexts in your application: an **Administration Panel** and a **RESTful WebService**. This are certainly two completely different contexts as in one context you'll maybe want to get all resources (i.e. including trashed) and in the other one you want only the active ones.
 
-This is when Service Providers come in really handy, the only problem is that Laravel doesn't come with an out of the box solution for loading different Service Providers for different contexts giving you the possibility to register all your repositories to a single interface and bind them through your Context's Service Provider.
+This is when Service Providers come in really handy, the only problem is that Laravel doesn't come with an out of the box solution for loading different Service Providers for different contexts.
+
+This package gives you the possibility to register your different repositories to a single interface and bind them through your Context's Service Provider, using Laravel's amazing IoC Container to resolve which concrete implementation we need to bind depending on which context we are on.
 
 ## Installation Instructions
 To install this package you'll simply need to add this line to your composer.json file:
