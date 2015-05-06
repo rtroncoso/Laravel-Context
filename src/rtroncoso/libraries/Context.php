@@ -15,7 +15,7 @@ class Context
 
     /**
      * Saves our current context for static facades
-     * @var
+     * @var string
      */
     protected $current;
 
@@ -52,9 +52,20 @@ class Context
             $matcher = $this->app['config']['cupona.context.matcher'];
         }
 
-        $provider = $this->builder->build($context, $namespace, $matcher);
+        $this->current = $context; // Save our current context
+        $provider = $this->builder->build($this->current, $namespace, $matcher);
 
         return $this->isValidProvider($provider) ? $this->app->register($provider) : null;
+    }
+
+    /**
+     * Gets the current context
+     *
+     * @return string
+     */
+    public function current()
+    {
+        return $this->current;
     }
 
     /**

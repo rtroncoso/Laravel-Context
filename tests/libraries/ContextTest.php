@@ -46,4 +46,16 @@ class ContextTest extends TestCase {
         $context->load('nonExisting');
     }
 
+    /**
+     * @test
+     */
+    public function it_should_save_the_current_context()
+    {
+        $context = $this->app->make('Cupona\\Libraries\\Context');
+        $provider = $context->load();
+
+        $this->assertInstanceOf('Contextual\\Providers\\DefaultServiceProvider', $provider);
+        $this->assertEquals('default', $context->current());
+    }
+
 }
