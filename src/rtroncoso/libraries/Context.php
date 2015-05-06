@@ -52,10 +52,7 @@ class Context
             $matcher = $this->app['config']['cupona.context.matcher'];
         }
 
-        $this->current = $context; // Save our current context
-        $provider = $this->builder->build($this->current, $namespace, $matcher);
-
-        return $this->isValidProvider($provider) ? $this->app->register($provider) : null;
+        return $this->build($context, $namespace, $matcher);
     }
 
     /**
@@ -69,6 +66,41 @@ class Context
     }
 
     /**
+     * Builds a provider string and loads it into our application
+     *
+     * @param $context
+     * @param $namespace
+     * @param $matcher
+     * @return \Illuminate\Support\ServiceProvider|null
+     */
+    private function build($context, $namespace, $matcher)
+    {
+        // Save our current context
+        $this->current = $context;
+
+        $provider = $this->getPreloadedProvider($context) ?:
+            $this->builder->build($this->current, $namespace, $matcher);
+
+        return $this->validProvider($provider) ?
+            $this->app->register($provider) : null;
+    }
+
+    /**
+     * Gets a preloaded Service Provider from our config string
+     * or else return null if not found
+     *
+     * @param $context
+     * @return string
+     */
+    private function getPreloadedProvider($context)
+    {
+
+        $config = $this->app['config']['cupona.context.custom'];
+
+        return array_key_exists($context, $config) ? $config[$context] : null;
+    }
+
+    /**
      * Will check if the provider given is instantiable,
      * if not it will throw ReflectionException
      *
@@ -76,7 +108,7 @@ class Context
      * @return ReflectionClass
      * @throws \ReflectionException
      */
-    private function isValidProvider($provider)
+    private function validProvider($provider)
     {
         return new ReflectionClass($provider);
     }

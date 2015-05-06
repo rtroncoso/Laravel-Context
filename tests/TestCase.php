@@ -19,7 +19,10 @@ abstract class TestCase extends Orchestra\Testbench\TestCase {
         $app['config']->set('cupona.context', [
             'default'   => 'default',
             'namespace' => '\\Contextual\\Providers\\',
-            'matcher'   => '{ClassName}ServiceProvider'
+            'matcher'   => '{ClassName}ServiceProvider',
+            'custom' => [
+                'test' => 'Contextual\\Providers\\DummyServiceProvider'
+            ]
         ]);
     }
 

@@ -6,6 +6,10 @@ return [
 
     'namespace' => 'Contextual\\Providers',
 
-    'matcher' => '{Context}ServiceProvider'
+    'matcher' => '{Context}ServiceProvider',
+
+    'custom' => [
+        'test' => 'Contextual\\Providers\\TestServiceProvider',
+    ]
 
 ];
