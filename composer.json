@@ -1,7 +1,7 @@
 {
     "name": "rtroncoso/laravel-context",
     "description": "Provides Service Provider binding depending on a context",
-    "homepage": "https://github.com/chirsbjr/api-guard",
+    "homepage": "https://github.com/rtroncoso/laravel-context",
     "license": "WTFPL (Do What The Fuck You Want To Public License)",
     "keywords": [
         "laravel",
@@ -20,6 +20,12 @@
         "php": ">=5.4.0",
         "illuminate/support": "5.0.*"
     },
+    "require-dev": {
+      "phpunit/phpunit": "^4.6",
+      "phpspec/phpspec": "^2.2",
+      "benconstable/phpspec-laravel": "~2.0",
+      "orchestra/testbench": "3.0.*"
+    },
     "autoload": {
         "classmap" : [
             "src/"
@@ -27,12 +33,6 @@
         "psr-0": {
             "Cupona\\": "src/"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^4.6",
-        "phpspec/phpspec": "^2.2",
-        "benconstable/phpspec-laravel": "~2.0",
-        "orchestra/testbench": "3.0.*"
     },
     "minimum-stability": "dev"
 }
