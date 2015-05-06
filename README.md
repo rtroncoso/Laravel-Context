@@ -37,8 +37,8 @@ At the end of your `providers` array add the following:
    
 ```php
 'providers' => [
-  ...
-  'Cupona\Providers\ContextServiceProvider',
+    ...
+    'Cupona\Providers\ContextServiceProvider',
 ]
 ```
 
@@ -46,8 +46,8 @@ At the end of your `aliases` array add the following:
   
 ```php
 'aliases' => [
-  ...
-  'Cupona\Facades\Context',
+    ...
+    'Cupona\Facades\Context',
 ]
 ```
 
@@ -123,10 +123,10 @@ If you want you can use this package's `Context` facade and dinamycally load and
 
 #### Loading a Context
 ```php
-  Context::load('context');
+    Context::load('context');
 ````
 
 #### Checking currently loaded Context
 ```php
-  $currentContext = Context::current();
+    $currentContext = Context::current();
 ```
