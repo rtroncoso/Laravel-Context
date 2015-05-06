@@ -4,10 +4,6 @@
  * Class NamespaceBuilder
  * @package Cupona\Services
  */
-/**
- * Class NamespaceBuilder
- * @package Cupona\Services
- */
 class NamespaceBuilder {
 
     /**
