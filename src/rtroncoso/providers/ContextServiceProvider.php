@@ -16,15 +16,25 @@ class ContextServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
+	 * Bootstrap the application services.
+	 *
+	 * @return void
+	 */
+	public function boot()
+	{
+		$this->publishes([
+			__DIR__.'../../config/cupona.context.php' => config_path('cupona.context.php'),
+		], 'config');
+	}
+
+	/**
 	 * Register the service provider.
 	 *
 	 * @return void
 	 */
 	public function register()
 	{
-        $this->publishes([
-            __DIR__.'../../config/cupona.context.php' => config_path('cupona.context.php'),
-        ]);
+		//
 	}
 
 	/**

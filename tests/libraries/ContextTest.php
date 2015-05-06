@@ -1,7 +1,5 @@
 <?php
 
-use Cupona\Libraries\Context;
-
 class ContextTest extends TestCase {
 
     /**
@@ -9,9 +7,33 @@ class ContextTest extends TestCase {
      */
     public function it_should_instantiate_a_new_context()
     {
-        $context = $this->app->make(Context::class);
+        $context = $this->app->make('Cupona\\Libraries\\Context');
 
-        $this->assertInstanceOf(Context::class, $context);
+        $this->assertInstanceOf('Cupona\\Libraries\\Context', $context);
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_load_the_default_service_provider()
+    {
+        $context = $this->app->make('Cupona\\Libraries\\Context');
+        $provider = $context->load();
+
+        $this->assertInstanceOf('Contextual\\Providers\\DefaultServiceProvider', $provider);
+        $this->assertArrayHasKey('Contextual\\Providers\\DefaultServiceProvider', $this->app->getLoadedProviders());
+    }
+
+    /**
+     * @test
+     */
+    public function it_should_load_a_dummy_service_provider()
+    {
+        $context = $this->app->make('Cupona\\Libraries\\Context');
+        $provider = $context->load('dummy');
+
+        $this->assertInstanceOf('Contextual\\Providers\\DummyServiceProvider', $provider);
+        $this->assertArrayHasKey('Contextual\\Providers\\DummyServiceProvider', $this->app->getLoadedProviders());
     }
 
 }
