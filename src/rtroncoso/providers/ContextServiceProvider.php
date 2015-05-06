@@ -24,7 +24,7 @@ class ContextServiceProvider extends ServiceProvider {
 	{
 		$this->publishes([
 			__DIR__.'/../../config/cupona.context.php' => config_path('cupona.context.php')
-		]);
+		], 'config');
 
 		$this->app->bind('context', 'Cupona\\Libraries\\Context');
 	}

@@ -16,7 +16,7 @@ abstract class TestCase extends Orchestra\Testbench\TestCase {
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('cupona.context', [
+        $app['config']->set('context', [
             'default'   => 'default',
             'namespace' => '\\Contextual\\Providers\\',
             'matcher'   => '{ClassName}ServiceProvider',

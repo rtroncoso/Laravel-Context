@@ -51,15 +51,15 @@ class Context
     public function load($context = null, $namespace = null, $matcher = null)
     {
         if(is_null($context)) {
-            $context = $this->app['config']['cupona.context.default'];
+            $context = $this->app['config']['context.default'];
         }
 
         if(is_null($namespace)) {
-            $namespace = $this->app['config']['cupona.context.namespace'];
+            $namespace = $this->app['config']['context.namespace'];
         }
 
         if(is_null($matcher)) {
-            $matcher = $this->app['config']['cupona.context.matcher'];
+            $matcher = $this->app['config']['context.matcher'];
         }
 
         return $this->build($context, $namespace, $matcher);
@@ -94,10 +94,13 @@ class Context
      */
     private function getPreloadedProvider($context)
     {
+        $config = $this->app['config']['context.custom'];
 
-        $config = $this->app['config']['cupona.context.custom'];
+        if(!is_null($config)) {
+            return array_key_exists($context, $config) ? $config[$context] : null;
+        }
 
-        return array_key_exists($context, $config) ? $config[$context] : null;
+        return null;
     }
 
     /**
