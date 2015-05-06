@@ -7,7 +7,7 @@ Laravel Context
 
 This simple yet powerful package will help you load different Service Providers depending in which context you are. Contexts can be setup using `context` middleware in your route groups or the `Context` facade.
 
-It supports both ~~**Laravel 5.1.x** *(release: 2.0.*)*~~ *(NOT SUPPORTED UNTIL RELEASE)*  and **Laravel 5.0.x** _(release: ~1.0.*)_
+It supports both ~~**Laravel 5.1.x** _(release: 2.0.*)_~~ *(NOT SUPPORTED UNTIL RELEASE)*  and **Laravel 5.0.x** _(release: ~1.0.*)_
 
 ## What's it for?
 Let's say you have 2 contexts in your application: an **Administration Panel** and a **RESTful WebService**. This are certainly two completely different contexts as in one context you'll maybe want to get all resources (i.e. including trashed) and in the other one you want only the active ones.
