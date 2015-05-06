@@ -30,6 +30,16 @@ class Context
     }
 
     /**
+     * Gets the current context
+     *
+     * @return string
+     */
+    public function current()
+    {
+        return $this->current;
+    }
+
+    /**
      * Loads a service provider depending on the context passed
      * to this method
      *
@@ -53,16 +63,6 @@ class Context
         }
 
         return $this->build($context, $namespace, $matcher);
-    }
-
-    /**
-     * Gets the current context
-     *
-     * @return string
-     */
-    public function current()
-    {
-        return $this->current;
     }
 
     /**
