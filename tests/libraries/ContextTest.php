@@ -36,4 +36,14 @@ class ContextTest extends TestCase {
         $this->assertArrayHasKey('Contextual\\Providers\\DummyServiceProvider', $this->app->getLoadedProviders());
     }
 
+    /**
+     * @test
+     * @expectedException ReflectionException
+     */
+    public function it_should_not_load_an_unexisting_provider()
+    {
+        $context = $this->app->make('Cupona\\Libraries\\Context');
+        $context->load('nonExisting');
+    }
+
 }

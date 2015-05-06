@@ -2,7 +2,7 @@
 
 use Cupona\Services\NamespaceBuilder;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Config;
+use ReflectionClass;
 
 /**
  * Class Context
@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Config;
  */
 class Context
 {
+
+    /**
+     * Saves our current context for static facades
+     * @var
+     */
+    protected $current;
 
     /**
      * @param Application $app
@@ -48,7 +54,20 @@ class Context
 
         $provider = $this->builder->build($context, $namespace, $matcher);
 
-        return $this->app->register($provider);
+        return $this->isValidProvider($provider) ? $this->app->register($provider) : null;
+    }
+
+    /**
+     * Will check if the provider given is instantiable,
+     * if not it will throw ReflectionException
+     *
+     * @param $provider
+     * @return ReflectionClass
+     * @throws \ReflectionException
+     */
+    private function isValidProvider($provider)
+    {
+        return new ReflectionClass($provider);
     }
 
 }
