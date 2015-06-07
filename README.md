@@ -76,20 +76,20 @@ Let's see an example, if you want your `/admin` routes to load the `backend` con
 
 #### Laravel 5.1.x:
 ```php
-Route::group('prefix' => 'admin', 'middleware' => 'context:backend', function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'context:backend', function() {
     
     // Your contextually loaded routes go here
     
-}); 
+}]); 
 ```
 
 #### Laravel 5.0.x:
 ```php
-Route::group('prefix' => 'admin', 'middleware' => 'context', 'context' => 'backend', function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'context', 'context' => 'backend', function() {
     
     // Your contextually loaded routes go here
     
-}); 
+}]); 
 ```
 
 And your `BackendServiceProvider` should look something like this:
@@ -126,7 +126,7 @@ If you want you can use this package's `Context` facade and dinamycally load and
 #### Loading a Context
 ```php
     Context::load('context');
-````
+```
 
 #### Checking currently loaded Context
 ```php
