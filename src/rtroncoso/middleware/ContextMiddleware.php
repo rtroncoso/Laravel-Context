@@ -19,13 +19,13 @@ class ContextMiddleware
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
-     * @param string $action
+     * @param string $context
      * @return mixed
      */
-    public function handle($request, Closure $next, $action)
+    public function handle($request, Closure $next, $context)
     {
-        $action = $action ?: $request->route()->getAction();
-        $context = $this->getContext($action);
+        $actions = $request->route()->getAction();
+        $context = $context ?: $this->getContext($actions);
 
         Context::load($context);
 
@@ -33,15 +33,15 @@ class ContextMiddleware
     }
 
     /**
-     * Gets a context from the action
+     * Gets a context from the actions in the request
      *
-     * @param $action
+     * @param $actions
      * @return mixed
      */
-    public function getContext($action)
+    public function getContext($actions)
     {
-        if (array_key_exists('context', $action)) {
-            return $action['context'];
+        if (array_key_exists('context', $actions)) {
+            return $actions['context'];
         }
 
         return null;
