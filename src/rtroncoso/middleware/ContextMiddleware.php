@@ -20,9 +20,10 @@ class ContextMiddleware implements Middleware
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
+     * @param string $action
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $action)
     {
         $action = $request->route()->getAction();
         $context = $this->getContext($action);
