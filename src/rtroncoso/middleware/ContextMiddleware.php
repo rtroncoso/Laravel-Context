@@ -2,7 +2,6 @@
 
 use Closure;
 use Cupona\Facades\Context;
-use Illuminate\Contracts\Routing\Middleware;
 
 /**
  * Class ContextMiddleware
@@ -12,7 +11,7 @@ use Illuminate\Contracts\Routing\Middleware;
  *
  * @package Cupona\Middleware
  */
-class ContextMiddleware implements Middleware
+class ContextMiddleware
 {
 
     /**
@@ -20,12 +19,13 @@ class ContextMiddleware implements Middleware
      *
      * @param  \Illuminate\Http\Request $request
      * @param  \Closure $next
+     * @param string $context
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $context)
     {
-        $action = $request->route()->getAction();
-        $context = $this->getContext($action);
+        $actions = $request->route()->getAction();
+        $context = $context ?: $this->getContext($actions);
 
         Context::load($context);
 
@@ -33,15 +33,15 @@ class ContextMiddleware implements Middleware
     }
 
     /**
-     * Gets a context from the action
+     * Gets a context from the actions in the request
      *
-     * @param $action
+     * @param $actions
      * @return mixed
      */
-    public function getContext($action)
+    public function getContext($actions)
     {
-        if (array_key_exists('context', $action)) {
-            return $action['context'];
+        if (array_key_exists('context', $actions)) {
+            return $actions['context'];
         }
 
         return null;
