@@ -2,7 +2,6 @@
 
 use Closure;
 use Cupona\Facades\Context;
-use Illuminate\Contracts\Routing\Middleware;
 
 /**
  * Class ContextMiddleware
@@ -12,7 +11,7 @@ use Illuminate\Contracts\Routing\Middleware;
  *
  * @package Cupona\Middleware
  */
-class ContextMiddleware implements Middleware
+class ContextMiddleware
 {
 
     /**
@@ -25,7 +24,7 @@ class ContextMiddleware implements Middleware
      */
     public function handle($request, Closure $next, $action)
     {
-        $action = $request->route()->getAction();
+        $action = $action ?: $request->route()->getAction();
         $context = $this->getContext($action);
 
         Context::load($context);
