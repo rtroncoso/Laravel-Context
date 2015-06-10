@@ -22,14 +22,14 @@ To install this package you'll simply need to add this line to your composer.jso
 ### Laravel 5.0.x
 ```
 "require": {
-    "rtroncoso/laravel-context": "~1.0"
+    "rtroncoso/laravel-context": "^1.0.0"
 }
 ```
 
 ### Laravel 5.1.x
 ```
 "require": {
-    "rtroncoso/laravel-context": "~2.0"
+    "rtroncoso/laravel-context": "^2.0.0"
 }
 ```
 
