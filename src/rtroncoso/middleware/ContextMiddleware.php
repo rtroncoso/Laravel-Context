@@ -22,7 +22,7 @@ class ContextMiddleware
      * @param string $context
      * @return mixed
      */
-    public function handle($request, Closure $next, $context)
+    public function handle($request, Closure $next, $context = null)
     {
         $actions = $request->route()->getAction();
         $context = $context ?: $this->getContext($actions);
